@@ -1,0 +1,391 @@
+                         LEIAME.TXT - SEFIP VERSAO 5.0
+                         =============================
+
+
+                          PROCEDIMENTOS DE INSTALACAO
+
+
+1     Insira o disquete contendo os arquivos de instalacao do SEFIP
+      no drive para instalacao via disquete. O Sefip tambem pode ser
+      baixado via Internet nos seguintes sites:
+      - www.caixa.gov.br
+      - www.mpas.gov.br
+
+      Para o procedimento de instalacao descrito abaixo, considerar como
+      <CAMINHO>:
+      - A:  (Disquete de Instalacao - Drive A:)
+      - B:  (Disquete de Instalacao - Drive B:)
+      - C:\<DIR> (Download via internet, onde <DIR> e o diretorio onde o
+        programa foi descompactado.
+
+2     Instalacao
+
+2.1   Instalacao pelo MS-DOS
+      . digite <CAMINHO>\instala tecle <enter>
+      . siga os procedimentos descritos nas telas que serao apresentadas
+
+2.2   Instalacao pelo WINDOWS 3.1 OU 3.11
+      . atraves do Gerenciador de Arquivos selecione a opcao ARQUIVO -
+        EXECUTAR
+      . digite, na linha de comando, <CAMINHO>\instala
+      . siga os procedimentos descritos nas telas que serao apresentadas
+
+2.3   Instalacao pelo WINDOWS 95/98
+      . clique em INICIAR - EXECUTAR e digite na linha de comando
+        <CAMINHO>instala
+      . siga os procedimentos descritos nas telas que serao apresentadas
+
+2.4   Instalacao pelo WINDOWS NT 4.0
+      . clique em INICIAR - EXECUTAR e digite na linha de comando
+        <CAMINHO>instala
+      . siga os procedimentos descritos nas telas que serao apresentadas
+
+3     O programa de instalacao criara o diretorio C:\CAIXA\SEFIP. Para
+      iniciar o sistema acesse este diretorio e execute o arquivo
+      SEFIP.EXE.
+
+4     Apos finalizar o processo de instalacao imprima, utilizando o WORD,
+      os manuais:
+      . ERROACAO.DOC (Manual de Mensagens de Erro)
+      . FOLHA.DOC (Layout de Folha de Pagamento-Manual de Especificacao)
+
+
+5     Leia atentamente o manual do usuario
+
+
+
+            INFORMACOES COMPLEMENTARES REFERENTES A INSTALACAO E
+                            OPERACAO DO SEFIP
+
+
+
+1. Sistema Operacional
+
+O SEFIP deve ser executado sob os sistemas operacionais DOS 3.3 ou
+posterior, Windows 3.1, Windows 3.11, Windows 95/98 ou Windows NT 4.0.
+Embora o sistema possa, eventualmente, funcionar em algum ambiente nao
+citado aqui, a responsabilidade da CAIXA limita-se aos sistemas
+operacionais mencionados.
+
+2. Requisitos de Software para a Instalacao do SEFIP
+
+O programa de instalacao do SEFIP efetua as mudancas necessarias a sua
+instalacao em um computador. Para maior seguranca, sao salvas as versoes
+anteriores dos arquivos modificados.
+
+2.1. MS-DOS, Windows 3.1, Windows 3.11 ou Windows 95/98
+
+2.1.1. Modificacoes no AUTOEXEC.BAT
+
+O SEFIP efetuara as seguintes modificacoes no arquivo AUTOEXEC.BAT do
+computador:
+
+SET CLIPPER=F200 //DYNF:8 //SWAPK:65535 //SWAPPATH:"C:\TEMP"
+                 //TEMPPATH:"C:\TEMP"
+LH MODE CON CODEPAGE PREPARE=((850) [CAMINHO] EGA.CPI)
+LH MODE CON CODEPAGE SELECT=850
+
+Se seu computador estiver carregando o SHARE.EXE no AUTOEXEC.BAT sera
+acrescentado os parametros minimos necessarios ao SEFIP:
+SHARE /F:5400 /L:200
+
+O conteudo do AUTOEXEC.BAT original sera salvo em AUTOEXEC.SF0. Caso ja
+exista o arquivo AUTOEXEC.SF0, sera usado o nome AUTOEXEC.SF1; caso
+exista o arquivo AUTOEXEC.SF1, sera usado AUTOEXEC.SF2 e assim por
+diante.
+
+2.1.2. Modificacoes no CONFIG.SYS
+
+O SEFIP efetuara as seguintes modificacoes no arquivo CONFIG.SYS do
+computador:
+
+DEVICE = [CAMINHO] HIMEM.SYS
+BUFFERS=30
+FILES=200
+DEVICE=[CAMINHO] EMM386.EXE 2048 MIN=1024 RAM
+DOS=HIGH,UMB
+DEVICEHIGH=[CAMINHO] DISPLAY.SYS CON=(EGA,,1)
+
+Se seu computador estiver carregando o SHARE.EXE no CONFIG.SYS sera
+acrescentado os parametros minimos necessarios ao SEFIP:
+INSTALL=[CAMINHO] SHARE /F:5400 /L:200
+
+onde [CAMINHO] e determinado pelo SEFIP ou escolhido pelo usuario.
+
+O conteudo do CONFIG.SYS original sera salvo em CONFIG.SF0. Caso ja
+exista o arquivo CONFIG.SF0, sera usado o nome CONFIG.SF1; caso exista o
+arquivo CONFIG.SF1, sera usado CONFIG.SF2 e assim por diante.
+
+2.2. Windows NT 4.0
+
+2.2.1. Modificacoes no AUTOEXEC.NT
+
+O SEFIP efetuara as seguintes modificacoes no arquivo AUTOEXEC.NT do
+computador:
+
+SET CLIPPER=F200 //DYNF:8 //SWAPK:65535 //SWAPPATH:"C:\TEMP"
+                 //TEMPPATH:"C:\TEMP"
+LH MODE CON CODEPAGE PREPARE=((850) [CAMINHO] EGA.CPI)
+LH MODE CON CODEPAGE SELECT=850
+
+O conteudo do AUTOEXEC.NT original sera salvo em AUTOEXEC.SF0. Caso ja
+exista o arquivo AUTOEXEC.SF0, sera usado o nome AUTOEXEC.SF1; caso
+exista o arquivo AUTOEXEC.SF1, sera usado AUTOEXEC.SF2 e assim por
+diante.
+
+2.2.2. Modificacoes no CONFIG.NT
+
+O SEFIP efetuara as seguintes modificacoes no arquivo CONFIG.NT do
+computador:
+
+DEVICE = [CAMINHO] HIMEM.SYS
+BUFFERS=30
+FILES=200
+DOS=HIGH,UMB
+
+O conteudo do CONFIG.NT original sera salvo em CONFIG.SF0. Caso ja
+exista o arquivo CONFIG.SF0, sera usado o nome CONFIG.SF1; caso exista o
+arquivo CONFIG.SF1, sera usado CONFIG.SF2 e assim por diante.
+
+3. Funcionamento do Programa de Instalacao
+
+O programa de instalacao do SEFIP executa, basicamente, as seguintes
+funcoes:
+
+- Verifica a existencia do arquivo de instalacao no diretorio corrente e
+drives possiveis, identificando o drive corrente;
+
+- Verifica a integridade do conteudo do disco de instalacao;
+
+- Cria diretorio para instalacao;
+
+- Verifica se o arquivo executavel do SEFIP (SEFIP.EXE) ja existe,
+indicando versao da instalacao anterior e versao da nova instalacao,
+emitindo mensagem para proteger os dados;
+
+- Cria o diretorio da aplicacao, caso nao exista;
+
+- Verifica se os arquivos AUTOEXEC.BAT e CONFIG.SYS ou AUTOEXEC.NT e
+CONFIG.NT estao protegidos contra gravacao, emitindo mensagem para
+desbloqueio;
+
+- Verifica se existe espaco necessario para a instalacao, caso contrario
+emite mensagem;
+
+- Solicita que o usuario informe o sistema operacional utilizado;
+
+- Verifica a existencia dos arquivos HIMEM.SYS, EMM386.EXE e EGA.CPI,
+solicitando sua localizacao se nao forem encontrados;
+
+- Modifica o arquivo CONFIG.SYS ou CONFIG.NT e salva a versao original;
+
+- Modifica o arquivo AUTOEXEC.BAT e AUTOEXEC.NT salva a versao original;
+
+- Copia o arquivo INST.EXE para o diretorio da aplicacao.
+
+4. Significado dos Parametros Passados para o CA-Clipper
+
+Para orientacao da equipe de suporte de software, relacionamos os
+parametros passados para o CA-Clipper no AUTOEXEC.BAT e seu respectivo
+significado:
+
+F200
+Aloca ate 200 arquivos para uso do CA-Clipper.
+
+DYINF:8
+Especifica o numero de arquivos (file handles) que o sistema de overlay
+dinamico pode utilizar. O maximo e 8.
+
+SWAPK:65535
+Especifica o tamanho maximo da area de swap em disco utilizada pelo
+sistema de gerenciamento de memoria virtual (VM). O maximo e 65535.
+
+SWAPPATH:"C:\TEMP"
+Especifica a localizacao do arquivo de swap em disco.
+
+TEMPPATH:"C:\TEMP"
+Especifica a localizacao dos arquivos temporarios.
+
+
+5. Problemas de Memoria Convencional
+
+   Caso o sistema indique que nao ha memoria convencional suficiente
+   para ser executado, a adocao dos procedimentos abaixo sera necessaria
+   a fim de auxiliar na solucao do problema.
+
+
+5.1 - Verificar se as linhas abaixo estao presentes nos arquivos de
+      inicializacao:
+
+      AUTOEXEC.BAT
+      ============
+
+        SET CLIPPER=F200 //DYNF:8 //SWAPK:65535 //SWAPPATH:"C:\TEMP"
+                         //TEMPPATH:"C:\TEMP"
+
+      CONFIG.SYS
+      ==========
+
+        DEVICE=[CAMINHO] HIMEM.SYS
+        DEVICE=[CAMINHO] EMM386.EXE 2048 MIN=1024 RAM
+        DOS=HIGH,UMB
+        BUFFERS=30
+        FILES=200
+        DEVICEHIGH=[CAMINHO] DISPLAY.SYS CON=(EGA,,1)
+
+
+      AUTOEXEC.NT
+      ===========
+
+        SET CLIPPER=F200 //DYNF:8 //SWAPK:65535 //SWAPPATH:"C:\TEMP"
+                         //TEMPPATH:"C:\TEMP"
+
+      CONFIG.NT
+      =========
+
+        DEVICE=[CAMINHO] HIMEM.SYS
+        DOS=HIGH,UMB
+        BUFFERS=30
+        FILES=200
+
+
+
+   Caso as linhas nao estejam presentes, deverao ser adicionadas e o
+   computador reiniciado.
+
+   Caso as linhas estejam presentes, mas com formato diferente, deverao
+   ser alteradas para o formato indicado acima, e o computador devera
+   ser reiniciado.
+
+   Apos a reinicializacao do computador, verificar se existe 581 KB de
+   memoria livre. Caso a memoria convencional liberada for menor que
+   581 KB o comando DEVICE=[CAMINHO] EMM386.EXE 2048 MIN=1024 RAM do
+   CONFIG.SYS devera ser substituido pelo comando:
+
+       DEVICE=[CAMINHO] EMM386.EXE NOEMS
+
+   Apos esta alteracao o computador devera ser reinicializado e a
+   memoria convecional liberada devera estar maior ou igual a 567 KB.
+
+
+   OTIMIZACAO SISTEMA OPERACIONAL WINDOWS ME
+
+   No atalho do SEFIP, na guia memoria coloca-se a seguite configuracao:
+
+      Convencional: Auto
+      Ambiente incial: Auto 
+      Expandida (EMS): Nenhum 
+      Estendida (XMS): Nenhum 
+      Marca-se a opcao de HMA 
+      Memoria em modo Protegido: Auto 
+
+
+5.2 - Liberar memoria convencional
+
+    Todos os programas residentes e drivers nao essenciais para a
+    operacao do seu ambiente deverao ser retirados dos arquivos
+    AUTOEXEC.BAT e CONFIG.SYS, ou AUTOEXEC.NT e CONFIG.NT, no ambiente
+    Windows NT 4.0, de modo a nao serem mais carregados ao se iniciar o
+    computador.
+
+    Os programas residentes e drivers essenciais deverao ser carregados
+    em memoria alta, conforme abaixo:
+
+    CONFIG.SYS ou CONFIG.NT:
+    =======================
+
+      Substituir as instrucoes DEVICE por DEVICEHIGH.
+
+      Ex: DEVICE=DISPLAY.SYS
+          Substituir por:
+          DEVICEHIGH=DISPLAY.SYS
+
+      Obs: Se algum driver deixar de funcionar apos a alteracao acima,
+      deve-se retornar a instrucao anteriormente utilizada.
+
+
+    AUTOEXEC.BAT ou AUTOEXEC.NT:
+    ===========================
+
+      Inserir, onde for necessario, a instrucao LH para os programas
+      residentes.
+      Observe os exemplos abaixo:
+
+      Ex: DOSKEY
+          Substituir por:
+          LH DOSKEY
+
+          KEYB BR,850,C:\WINDOWS\COMMAND\KEYBRD2.SYS /ID:275
+          Substituir por:
+          LH KEYB BR,850,C:\WINDOWS\COMMAND\KEYBRD2.SYS /ID:275
+
+          Obs: No caso do Windows NT 4.0 o caminho correto
+               costuma ser: C:\WINNT\SYSTEM32\
+
+          C:\WINDOWS\COMMAND\MSCDEX.EXE /D:SSCD000 /M:10
+          Substituir por:
+          LH C:\WINDOWS\COMMAND\MSCDEX.EXE /D:SSCD000 /M:10
+
+   Obs1: No caso do Windows NT 4.0 o caminho correto
+            costuma ser: C:\WINNT\SYSTEM32\
+
+   Obs2: Estando habilitado o EMS e necessario 581 KB de memoria
+         convencional livre para que o programa funcione normalmente.
+
+   Obs3: Estando desabilitado o EMS e necessario 567 KB de memoria
+         convencional livre para que o programa funcione normalmente.
+
+
+
+      Obs: Se algum programa residente deixar de funcionar apos a
+           alteracao acima, deve-se retornar a forma anteriormente
+           utilizada.
+
+
+   Vale lembrar que estas sao alternativas basicas para solucao de
+   problemas de memoria. Porem, em alguns casos, estas instrucoes podem
+   nao surtir o efeito desejado. Caso isto aconteca, entre em contato
+   com o Help Desk da CAIXA, atraves do Telefone 0800-561041.
+
+
+
+6. Problemas com espaco no ambiente para abertura de tabelas
+
+   Caso o sistema indique que nao ha espaco no ambiente para abertura de
+   tabelas, a adocao dos procedimentos abaixo sera necessaria a fim de
+   auxiliar na solucao do problema.
+
+
+6.1 - Verificar se as linhas abaixo estao presentes nos arquivos de
+      inicializacao:
+
+      AUTOEXEC.BAT ou AUTOEXEC.NT
+      ===========================
+
+      SET CLIPPER=F200 //DYNF:8 //SWAPK:65535 //SWAPPATH:"C:\TEMP"
+                       //TEMPPATH:"C:\TEMP"
+
+      CONFIG.SYS ou CONFIG.NT
+      =======================
+
+      FILES=200
+
+   Caso as linhas nao estejam presentes, deverao ser adicionadas e o
+   computador reiniciado.
+
+   Caso as linhas estejam presentes, mas com formato diferente, deverao
+   ser alteradas para o formato indicado acima, e o computador devera
+   ser reiniciado.
+
+   Caso as orientaá‰es acima, n∆o atenda suas necessidades, entre em
+   contato com o Help Desk da Caixa, atraves do telefone 0800-561041.
+
+
+7. Arquivo de Folha de Pagamento
+
+   O Sistema SEFIP somente aceita arquivo de Folha de Pagamento que
+   caiba em apenas um disquete ou arquivo localizado no disco rigido
+   (local/em rede).
+
+   O sistema nao aceita arquivo de Folha de Pagamento segmentado em
+   multiplos volumes.
